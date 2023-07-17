@@ -16,6 +16,10 @@ let countries = ["Vanuatu", "Uganda", "Peru", "Japan", "Poland"];
 let countriesReversed = [];
 
 // Lodash implementation
+countriesReversed = _.reverse(countries);
+console.log("countriesReversed:", countriesReversed);
+
+// Reverse Sorted?
 const reverseSorted = _.reverse(_.sortBy(countries));
 console.log("reverseSorted:", reverseSorted);
 
