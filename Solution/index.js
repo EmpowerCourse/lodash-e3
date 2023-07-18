@@ -293,12 +293,14 @@ function greatThan100(emp) {
   return _.some(emp.favoriteNumbers, num => num > 100);
 }
 
-function genderMale(emp) {
-  return emp.gender === "male";
-}
+const genderMale = x => x.gender === "male";
+// OR
+// function genderMale(emp) {
+//   return emp.gender === "male";
+// }
 
-const c100male = _.filter(s2Employees, emp => (lastNameC(emp) && greatThan100(emp) && genderMale(emp)));
-// console.log("c100male:", c100male);
+const c100male = _.filter(s2Employees, emp => lastNameC(emp) && greatThan100(emp) && genderMale(emp));
+console.log("c100male:", c100male);
 
 
 /*
@@ -310,6 +312,13 @@ const newEmp = _.map(s2Employees, emp => {
 });
 // console.log("newEmp:", newEmp);
 
+// OR
+const summed = _.map(s2Employees, emp => {
+  ...emp, 
+  sumOfFavoriteNumbers: _.sum(emp.favoriteNumbers)
+});
+console.log("summed:", summed);
+
 
 /*
 BONUS. 
@@ -319,8 +328,19 @@ TODO
 */
 
 const colors = _.map(s2Employees, "favoriteColor");
-const uniqColors = _.uniq(_.compact(colors));
-console.log("uniqColors", uniqColors);
+const uniqColors = _.uniq(_.filter(colors, color => !!color)); // turn UNDEFINED into FALSE + filter them.
+// console.log("uniqColors", uniqColors);
+
+
+// To avoid hardcoded text (typo-prone):
+const COLOR = {
+  PURPLE: "purple",
+  BLUE: "blue",
+};
+// To use:
+const a = COLOR.BLUE;
+
+
 
 
 
