@@ -310,13 +310,13 @@ const newEmp = _.map(s2Employees, emp => {
   emp.sumOfFavoriteNumbers = _.sum(emp.favoriteNumbers);
   return emp;
 });
-// console.log("newEmp:", newEmp);
+// console.log("newEmpa:", newEmp);
 
 // OR
-const summed = _.map(s2Employees, emp => {
+const summed = _.map(s2Employees, emp => ({
   ...emp, 
   sumOfFavoriteNumbers: _.sum(emp.favoriteNumbers)
-});
+}));
 console.log("summed:", summed);
 
 
